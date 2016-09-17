@@ -1,8 +1,7 @@
 import org.junit.*;
 import static org.junit.Assert.*;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
+
 
 public class WordTest {
 
@@ -43,4 +42,25 @@ public class WordTest {
     assertEquals(myWord2, Word.find(myWord2.getID()));
   }
 
+  @Test
+  public void Word_addsDefinition_true() {
+    Word myWord = new Word("extemporaneous");
+    Definition myWordDefinition = new Definition("spoken or done without preparation.");
+    myWord.defineWord(myWordDefinition);
+    assertEquals(true, myWord.getDefinitions().contains(myWordDefinition));
+  }
+
+  @Test
+  public void Word_addsMultipleDefinitions_true() {
+    Word myWord = new Word("extemporaneous");
+    Definition myWordDefinition = new Definition("spoken or done without preparation.");
+    Definition myWordDefinition2 = new Definition("composed, performed, or uttered on the spur of the moment.");
+    Definition myWordDefinition3 = new Definition("I'm just making this definition up because I want to make sure it can handle 3 definitions.");
+    myWord.defineWord(myWordDefinition);
+    myWord.defineWord(myWordDefinition2);
+    myWord.defineWord(myWordDefinition3);
+    assertEquals(true, myWord.getDefinitions().contains(myWordDefinition));
+    assertEquals(true, myWord.getDefinitions().contains(myWordDefinition2));
+    assertEquals(true, myWord.getDefinitions().contains(myWordDefinition3));
+  }
 }

@@ -1,3 +1,17 @@
 <h1> Personal Dictionary! </h1>
 <br>
-<p>Enter a new word for it to display in the dictionary.</p>
+
+<form action="." method="post">
+  <div class="form-group">
+    <label for="newWordInput">Enter your word</label>
+    <input id="newWordInput" name="newWordInput" type="text">
+  </div>
+  <button type="submit" class="btn btn-success" name="button">Submit</button>
+</form>
+
+
+
+
+#foreach ($word in $words)
+  <p><a href="/$word.getID()">$word.getWord()</a></p>
+#end

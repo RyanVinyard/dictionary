@@ -1,0 +1,19 @@
+<h1>$word</h1>
+
+<form method="post">
+  <div class="form-group">
+    <label for="wordDefinitionInput">Enter your definition</label>
+    <input id="wordDefinitionInput" name="wordDefinitionInput" type="text">
+    <button type="submit" class="btn btn-success" name="button">Add</button>
+  </div>
+</form>
+
+<h2>Definitions:</h2>
+
+<ul>
+#foreach ($definition in $definitions)
+  <li>$definition.getDefinition()</li>
+  #end
+</ul>
+
+<p><a href="/">List of all words</a></p>

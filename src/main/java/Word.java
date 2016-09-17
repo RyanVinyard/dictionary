@@ -44,6 +44,9 @@ public class Word {
     return mDefinitions;
   }
 
+  public void defineWord(Definition definition) {
+    mDefinitions.add(definition);
+  }
 
 
 
